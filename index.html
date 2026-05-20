@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reforge</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">Reforge</div>
+    <h1>Define your<br><span>coding style</span></h1>
+    <div class="subtitle">// select language → set options → download config</div>
+  </header>
+
+  <div class="steps">
+    <div class="step active" id="s1"><div class="step-num">1</div> Language</div>
+    <div class="step-sep"></div>
+    <div class="step" id="s2"><div class="step-num">2</div> Style</div>
+    <div class="step-sep"></div>
+    <div class="step" id="s3"><div class="step-num">3</div> Export</div>
+  </div>
+
+  <!-- JEZIK -->
+  <div class="lang-grid">
+    <div class="lang-card" onclick="selectLang('cpp', this)">
+      <div class="lang-icon">C++</div>
+      <div class="lang-name">C++</div>
+      <div class="lang-ext">.cpp .hpp .h</div>
+    </div>
+    <div class="lang-card" onclick="selectLang('c', this)">
+      <div class="lang-icon">C</div>
+      <div class="lang-name">C</div>
+      <div class="lang-ext">.c .h</div>
+    </div>
+    <div class="lang-card" onclick="selectLang('py', this)">
+      <div class="lang-icon">Py</div>
+      <div class="lang-name">Python</div>
+      <div class="lang-ext">.py</div>
+    </div>
+    <div class="lang-card" onclick="selectLang('js', this)">
+      <div class="lang-icon">JS</div>
+      <div class="lang-name">JavaScript</div>
+      <div class="lang-ext">.js .ts</div>
+    </div>
+  </div>
+
+  <!-- CONFIG -->
+  <div class="config-area" id="config">
+    <div id="preset-row" class="preset-row"></div>
+    <div class="two-col">
+      <div id="opts-panel"></div>
+      <div class="preview-wrap">
+        <div class="preview-box">
+          <div class="preview-top">
+            <div class="dot" style="background:#ff5f57"></div>
+            <div class="dot" style="background:#febc2e"></div>
+            <div class="dot" style="background:#28c840"></div>
+            <div class="preview-filename" id="prev-filename">preview.cpp</div>
+          </div>
+          <pre id="preview"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="export-bar">
+      <div class="export-info">
+        <strong>Save configuration</strong>
+        <span id="export-label">.clang-format + .editorconfig + README.md</span>
+      </div>
+      <div>
+        <button class="export-btn secondary" onclick="copyLink()">Copy link</button>
+        <button class="export-btn secondary" onclick="copyAiPrompt()">Copy AI prompt</button>
+        <button class="export-btn" id="download-btn" onclick="saveFiles()">Save to folder</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
